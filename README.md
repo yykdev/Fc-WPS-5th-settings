@@ -1,15 +1,58 @@
-- settings 분리
+# Deploy EC2
+
+## requirements
+
+*** Python *** 
+3.5.3
+
+*** pip *** 
 
 ```
-(deploy_ec2_env) ➜  settings git:(master) ✗ tree
-.
-├── __init__.py
-├── __pycache__
-│   ├── __init__.py
-│   ├── base.py
-│   └── debug.py
-├── base.py
-└── debug.py
+pip install -r requirements.txt
 ```
 
-- config_secret / setting_OOO.json 으로 Repository에 올라가면 안되는 키값 별도 셋팅
+## Create secret config file
+
+### Project structure
+
+```
+project_folder/
+    .conf_scret/
+        settings_common.json
+        settings_debug.json
+        settings_deploy.json
+    .django_app/
+    ...
+    ...
+
+```
+
+## settings_common.json example
+
+```
+{
+  "django": {
+    "secret_key": "secret_key"
+  }
+}
+```
+
+## settings_debug.json example
+
+```
+{
+  "django": {
+    "allowed_hosts": ["*"]
+  }
+}
+```
+
+## settings_deploy.json example
+
+```
+{
+  "django": {
+    "allowed_hosts": ["*"]
+  }
+}
+```
