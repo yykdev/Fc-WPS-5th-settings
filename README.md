@@ -2,57 +2,68 @@
 
 ## requirements
 
-*** Python *** 
-3.5.3
+**Python**  
+3.6.1
 
-*** pip *** 
+**pip**
 
 ```
 pip install -r requirements.txt
 ```
 
-## Create secret config file
+## Create secret config files
 
 ### Project structure
 
 ```
 project_folder/
-    .conf_scret/
-        settings_common.json
-        settings_debug.json
-        settings_deploy.json
-    .django_app/
-    ...
-    ...
-
+	.conf_secret/
+		settings_common.json
+		settings_debug.json
+		settings_deploy.json
+	.django_app/
+	...
+	...
 ```
 
-## settings_common.json example
+### settings_common.json example
 
-```
+```json
 {
   "django": {
-    "secret_key": "secret_key"
+    "secret_key": "Django project secret key"
   }
 }
 ```
 
-## settings_debug.json example
+### settings_debug.json example
 
-```
+```json
 {
   "django": {
-    "allowed_hosts": ["*"]
+    "allowed_hosts": [
+      "*"
+    ]
   }
 }
 ```
 
-## settings_deploy.json example
+### settings_deploy.json example
 
-```
+```json
 {
   "django": {
-    "allowed_hosts": ["*"]
+    "allowed_hosts": [
+      "*"
+    ]
   }
 }
+```
+
+
+## runserver
+
+```
+# local developement
+python3 manage.py runserver --settings=config.settings.debug
 ```
